@@ -1,0 +1,29 @@
+<?php
+
+
+namespace App\Scores;
+
+
+use Closure;
+
+final class Score7 extends Score
+{
+    public function handle(int $score, Closure $next)
+    {
+        if (
+            $this->loans
+            && $this->compareRepaymentsAndIncome()
+
+        ) {
+            $score += 3;
+        }
+
+        return $next($score);
+    }
+
+    private function compareRepaymentsAndIncome(): bool
+    {
+        return $this->monthlyLoanRepayment > ($this->monthlyIncome * 0.5);
+    }
+
+}
