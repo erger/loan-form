@@ -11,7 +11,7 @@ final class Score7 extends Score
     public function handle(int $score, Closure $next)
     {
         if (
-            $this->loans
+            $this->loansDebts
             && $this->compareRepaymentsAndIncome()
 
         ) {

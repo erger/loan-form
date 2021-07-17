@@ -27,14 +27,14 @@ class FormRequest extends Request
             'firstName' => 'required|string',
             'patronymic' => 'nullable|string',
             'gender' => 'required|int|min:0|max:1',
-            'dateOfBirth' => 'required|date|date_format:Y-m-d|before:-14 years|after:-65',
+            'dateOfBirth' => 'required|date|date_format:Y-m-d|before:-14 years|after:-65 years',
             'amountOfChildren' => 'required|int|min:0|max:30',
             'maritalStatus' => 'required|int|min:0|max:1',
             'monthlyIncome' => 'required|int|min:0',
             'typeOfEmployment' => 'required|int|min:0|max:3',
             'realEstate' => 'required|bool',
             'loans' => 'required|bool',
-            'loansDebts' => 'required|bool',
+            'loansDebts' => 'required_if:loans,1|bool',
             'monthlyLoanRepayment' => 'required_if:loans,1|nullable|int|min:0',
         ];
     }
