@@ -14,3 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [MainController::class, 'index']);
+Route::post('/check-form', [MainController::class, 'checkForm'])->name('check-form');
